@@ -52,7 +52,7 @@ func shoot(damage, speed):
 	bullet.damage = damage
 	bullet.speed = speed
 	
-	get_parent().add_child(bullet)
+	get_parent().get_parent().add_child(bullet)
 
 
 func set_ammo(new_value):
