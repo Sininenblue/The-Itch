@@ -69,18 +69,23 @@ func _on_GrabRange_area_entered(area):
 		
 		if weapon_on_hand == null:
 			self.weapon_on_hand = area.get_parent().name
-			area.get_parent().despawn()
+			area.get_parent().call_deferred("queue_free")
 		else:
 			for child in get_children():
 				if weapon_on_hand == child.name:
 					child.on_ground = false
-					child.despawn()
+					child.call_deferred("queue_free")
 			
 			self.weapon_on_hand = area.get_parent().name
-			area.get_parent().despawn()
+			area.get_parent().call_deferred("queue_free")
 
 
 func set_weapon(weapon_name):
+	if weapon_on_hand != null:
+		for weapon in weapon_manager.weapons:
+			if weapon.instance().name == weapon_on_hand:
+				weapon_manager.throw_weapon(weapon_on_hand)
+	
 	weapon_on_hand = weapon_name
 	
 	for weapon in weapon_manager.weapons:

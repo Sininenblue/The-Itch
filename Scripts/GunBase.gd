@@ -73,8 +73,3 @@ func set_on_ground(new_value):
 		$Collision/CollisionShape2D.set_deferred("disabled", true)
 	else:
 		$Collision/CollisionShape2D.set_deferred("disabled", false)
-
-
-func despawn():
-	if on_ground:
-		call_deferred("queue_free")
