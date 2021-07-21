@@ -18,7 +18,7 @@ onready var timer_dash_cooldown = $TimerDashCooldown
 
 
 func _ready():
-	pass
+	WeaponManager.player = self
 
 
 func _input(event):
@@ -29,6 +29,8 @@ func _input(event):
 
 
 func _physics_process(delta):
+	WeaponManager.player_interacting = Input.is_action_just_pressed("interact")
+	
 	mouse_position = get_global_mouse_position()
 	
 	input.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
