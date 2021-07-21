@@ -10,15 +10,12 @@ var velocity : Vector2
 var input : Vector2
 var direction : Vector2
 var mouse_position : Vector2
+var interacting
 
 var should_dash : bool = false
 
 onready var timer_dash_duration = $TimerDashDuration
 onready var timer_dash_cooldown = $TimerDashCooldown
-
-
-func _ready():
-	WeaponManager.player = self
 
 
 func _input(event):
@@ -29,7 +26,7 @@ func _input(event):
 
 
 func _physics_process(delta):
-	WeaponManager.player_interacting = Input.is_action_just_pressed("interact")
+	interacting = Input.is_action_just_pressed("interact")
 	
 	mouse_position = get_global_mouse_position()
 	
