@@ -8,4 +8,7 @@
 [node name="AssultRifle" parent="." instance=ExtResource( 2 )]
 position = Vector2( 159.515, 84.9489 )
 
+[node name="AssultRifle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 59.6216, 225.275 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]

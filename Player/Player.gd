@@ -66,8 +66,18 @@ func _apply_velocity():
 
 func _on_GrabRange_area_entered(area):
 	if area.is_in_group("weapon"):
-		self.weapon_on_hand = area.get_parent().name
-		area.get_parent().despawn()
+		
+		if weapon_on_hand == null:
+			self.weapon_on_hand = area.get_parent().name
+			area.get_parent().despawn()
+		else:
+			for child in get_children():
+				if weapon_on_hand == child.name:
+					child.on_ground = false
+					child.despawn()
+			
+			self.weapon_on_hand = area.get_parent().name
+			area.get_parent().despawn()
 
 
 func set_weapon(weapon_name):

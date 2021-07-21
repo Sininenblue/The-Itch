@@ -27,13 +27,15 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("shoot"):
-		shooting = true
-	else:
-		shooting = false
+	pass
 
 
 func _physics_process(delta):
+	if Input.is_action_pressed("shoot"):
+		shooting = true
+	else:
+		shooting = false
+	
 	if !on_ground:
 		mouse_position = get_global_mouse_position()
 		hand.look_at(mouse_position)
@@ -68,9 +70,9 @@ func set_on_ground(new_value):
 	on_ground = new_value
 	
 	if on_ground == false:
-		$Collision/CollisionShape2D.disabled = true
+		$Collision/CollisionShape2D.set_deferred("disabled", true)
 	else:
-		$Collision/CollisionShape2D.disabled = false
+		$Collision/CollisionShape2D.set_deferred("disabled", false)
 
 
 func despawn():
