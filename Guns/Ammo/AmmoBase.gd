@@ -1,9 +1,11 @@
 extends Area2D
+# the base node for all ammo types
 
 var damage : int
 var speed : float = 400.0
 
-var velocity = Vector2.ZERO
+var velocity = Vector2.RIGHT
+
 
 func start(_transform):
 	global_transform = _transform

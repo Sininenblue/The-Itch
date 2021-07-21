@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Guns/GunBase.tscn" type="PackedScene" id=1]
+
+[node name="Rifle" instance=ExtResource( 1 )]
+speed = 400.0
+ammo_max = 30
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2( 46, 0 )
+
+[node name="TimerFireRate" parent="." index="2"]
+wait_time = 0.13
