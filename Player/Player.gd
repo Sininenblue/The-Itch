@@ -9,7 +9,7 @@ var friction : float = 10.0
 var velocity : Vector2
 var input : Vector2
 var direction : Vector2
-var mouse_position : Vector2
+var target_position : Vector2
 var interacting
 
 var should_dash : bool = false
@@ -28,7 +28,7 @@ func _input(event):
 func _physics_process(delta):
 	interacting = Input.is_action_just_pressed("interact")
 	
-	mouse_position = get_global_mouse_position()
+	target_position = get_global_mouse_position()
 	
 	input.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")

@@ -9,6 +9,7 @@ export var ammo_max : int = 20
 var ammo_current : int = ammo_max
 var shooting : bool = false
 var active : bool = false
+var target_position : Vector2
 var holder
 
 onready var sprite = $Sprite
@@ -28,15 +29,21 @@ func _ready():
 
 func _process(delta):
 	if holder != null:
+		target_position = holder.target_position
+		
 		
 		if active:
 			if holder.interacting and timer_drop_buffer.is_stopped():
 				active = false
 			
-			position = holder.position
-			shooting = Input.is_action_pressed("shoot")
-			look_at(get_global_mouse_position())
+			position = position.linear_interpolate(holder.position, .4)
+			look_at(target_position)
 			
+			
+			sprite.flip_v = target_position.x < position.x
+			
+			
+			shooting = Input.is_action_pressed("shoot")
 			if shooting and timer_fire_rate.is_stopped():
 				timer_fire_rate.start()
 				shoot()
