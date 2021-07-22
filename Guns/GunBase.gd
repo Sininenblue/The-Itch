@@ -19,6 +19,7 @@ onready var grab_range = $GrabRange
 onready var grab_range_collision = $GrabRange/CollisionShape2D
 
 onready var BULLET = preload("res://Guns/Ammo/Bullet.tscn")
+onready var ARROW = preload("res://Guns/Ammo/Arrow.tscn")
 
 
 func _ready():
@@ -50,7 +51,7 @@ func shoot():
 		0:
 			instance_ammo(BULLET)
 		1:
-			print(ammo_type)
+			instance_ammo(ARROW)
 		2:
 			print(ammo_type)
 
