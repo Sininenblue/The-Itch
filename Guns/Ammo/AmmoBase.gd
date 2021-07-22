@@ -4,6 +4,7 @@ extends Area2D
 var damage : int
 var speed : float = 400.0
 
+var holder_name : String
 var velocity = Vector2.RIGHT
 
 
@@ -18,3 +19,15 @@ func _ready():
 
 func _physics_process(delta):
 	position += velocity * speed * delta
+
+
+func _on_AmmoBase_area_entered(area):
+	if area.is_in_group("shootable"):
+		#so that it doesn't collide with parent
+		if !area.get_parent().name in holder_name:	
+			call_deferred("queue_free")
+
+
+func _on_AmmoBase_body_entered(body):
+	if body.is_in_group("environment"):
+		pass

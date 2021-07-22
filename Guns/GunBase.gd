@@ -31,7 +31,6 @@ func _process(delta):
 	if holder != null:
 		target_position = holder.target_position
 		
-		
 		if active:
 			if holder.interacting and timer_drop_buffer.is_stopped():
 				active = false
@@ -56,15 +55,16 @@ func _process(delta):
 func shoot():
 	match ammo_type:
 		0:
-			instance_ammo(BULLET)
+			instance_ammo(BULLET, holder.name)
 		1:
-			instance_ammo(ARROW)
+			instance_ammo(ARROW, holder.name)
 		2:
 			print(ammo_type)
 
 
-func instance_ammo(ammo_type_to_instance):
+func instance_ammo(ammo_type_to_instance, holder_name):
 	var to_instance = ammo_type_to_instance.instance()
+	to_instance.holder_name = holder_name
 	to_instance.speed = speed
 	to_instance.rotation = rotation
 	to_instance.position = muzzle.global_position # something wrong with this
