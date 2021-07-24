@@ -66,6 +66,7 @@ func instance_ammo(ammo_type_to_instance, holder_name):
 	var to_instance = ammo_type_to_instance.instance()
 	to_instance.holder_name = holder_name
 	to_instance.speed = speed
+	to_instance.damage = damage
 	to_instance.rotation = rotation
 	to_instance.position = muzzle.global_position # something wrong with this
 	get_parent().add_child(to_instance)

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed : float = 150.0
+var speed : float = 130.0
 var accel : float = 50.0
 var dash : float = 400.0
 var dash_accel : float = 80.0
@@ -10,7 +10,7 @@ var velocity : Vector2
 var input : Vector2
 var direction : Vector2
 var target_position : Vector2
-var interacting
+var interacting : bool = false
 
 var should_dash : bool = false
 

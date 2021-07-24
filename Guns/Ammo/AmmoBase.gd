@@ -24,7 +24,8 @@ func _physics_process(delta):
 func _on_AmmoBase_area_entered(area):
 	if area.is_in_group("shootable"):
 		#so that it doesn't collide with parent
-		if !area.get_parent().name in holder_name:	
+		if !area.get_parent().name in holder_name:
+			area.health_current = area.health_current - damage
 			call_deferred("queue_free")
 
 
