@@ -4,7 +4,7 @@ var speed : float = 130.0
 var accel : float = 50.0
 var dash : float = 400.0
 var dash_accel : float = 80.0
-var friction : float = 10.0
+var friction : float = 50.0
 
 var velocity : Vector2
 var input : Vector2

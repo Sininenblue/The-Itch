@@ -30,6 +30,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="TimerDashCooldown" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
